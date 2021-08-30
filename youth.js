@@ -201,6 +201,7 @@ function removebody() {
 }
 
 function batHost(api, body) {
+    $.log("你的cookie是:"+cookie)
     return {
         url: 'https://ios.baertt.com/v5/' + api,
         headers: {
