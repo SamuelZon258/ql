@@ -59,7 +59,7 @@ bjTime = new Date(timestamp).toLocaleString('zh', {
 });
 console.log(`\n === 脚本执行 ${bjTime} ===\n`);
 $.log("******** 您共获取" + ReadArr.length + "次阅读请求，任务开始 *******")
-
+var cookie = process.env.ZQ_CODE
 !(async() => {
     if (!ReadArr[0]) {
         console.log($.name, '【提示】请把抓包的请求体填入Github 的 Secrets 中，请以&隔开')
@@ -206,7 +206,8 @@ function batHost(api, body) {
         headers: {
             'User-Agent': 'KDApp/2.0.2 (iPhone; iOS 14.5; Scale/3.00)',
             'Host': 'ios.baertt.com',
-            'Content-Type': 'application/x-www-form-urlencoded'
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Cookie': cookie
         },
         body: body
     }
